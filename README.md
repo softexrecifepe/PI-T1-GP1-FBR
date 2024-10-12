@@ -67,6 +67,14 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
       <sub>
           <b>Igor Moura</b>
          </sub>
+    <br>
+        <a href="https://github.com/IgorCavalcantiMoura">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <br>
+        <a href="https://www.linkedin.com/in/igor-cavalcanti-moura/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
     </td>
     <td align="center">
       <a href="#">
@@ -75,6 +83,14 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
         <sub>
           <b>Alyff Antônio</b>
         </sub>
+        <br>
+        <a href="https://github.com/IgorCavalcantiMoura">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <br>
+        <a href="https://www.linkedin.com/in/igor-cavalcanti-moura/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
     </td>
     <td align="center">
       <a href="#">
@@ -83,6 +99,14 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
         <sub>
           <b>Willians K.</b>
         </sub>
+        <br>
+        <a href="https://github.com/IgorCavalcantiMoura">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <br>
+        <a href="https://www.linkedin.com/in/igor-cavalcanti-moura/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
     </td>
     <td align="center">
       <a href="#">
@@ -91,6 +115,14 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
         <sub>
           <b>José Felipe</b>
         </sub>
+        <br>
+        <a href="https://github.com/IgorCavalcantiMoura">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <br>
+        <a href="https://www.linkedin.com/in/igor-cavalcanti-moura/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
     </td>
     <td align="center">
       <a href="#">
@@ -99,6 +131,14 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
         <sub>
           <b>Thiago Dias</b>
         </sub>
+        <br>
+        <a href="https://github.com/IgorCavalcantiMoura">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <br>
+        <a href="https://www.linkedin.com/in/igor-cavalcanti-moura/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
     </td>
   </tr>
 </table>
