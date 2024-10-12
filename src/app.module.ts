@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
+import { User } from './user/entities/user.entity';
+import { UserModule } from './user/user.module';
 
 
 
@@ -13,10 +15,11 @@ import { AuthModule } from './auth/auth.module';
       username: 'root',
       password: 'root',
       database: 'db_fbr_digital',
-      entities: [],
+      entities: [User],
       synchronize: true,
     }),
-    AuthModule
+    AuthModule,
+    UserModule
   ],
   controllers: [],
   providers: [],
