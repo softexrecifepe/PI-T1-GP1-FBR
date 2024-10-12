@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -13,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'db_fbr_digital',
       entities: [],
       synchronize: true,
-    })
+    }),
   ],
   controllers: [],
   providers: [],
