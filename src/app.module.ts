@@ -6,6 +6,8 @@ import { UserModule } from './user/user.module';
 import { AppController } from './app.controller';
 import { CoverageArea } from './coverageArea/entities/coverageArea.entity';
 import { CoverageAreaModule } from './coverageArea/coverageArea.module';
+import { Offering } from './offering/entities/offering.entity';
+import { OfferingModule } from './offering/offering.module';
 
 
 
@@ -18,12 +20,13 @@ import { CoverageAreaModule } from './coverageArea/coverageArea.module';
       username: 'root',
       password: 'root',
       database: 'db_fbr_digital',
-      entities: [User, CoverageArea],
+      entities: [User, CoverageArea, Offering],
       synchronize: true,
     }),
     AuthModule,
     UserModule,
-    CoverageAreaModule
+    CoverageAreaModule,
+    OfferingModule
   ],
   controllers: [AppController],
   providers: [],

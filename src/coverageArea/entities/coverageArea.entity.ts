@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Offering } from "../../offering/entities/offering.entity";
 
 @Entity({name: "tb_coverage_area"})
 export class CoverageArea {
@@ -56,4 +57,10 @@ export class CoverageArea {
   @ApiProperty()
   @UpdateDateColumn()
   updatedAt: Date; // Data de atualização do registro
+
+  @ApiProperty({type: ()=> Offering})
+  @ManyToOne(() => Offering, (offering) => offering.coverageArea, {
+    onDelete: 'CASCADE',
+  })
+  offering: Offering;
 }
