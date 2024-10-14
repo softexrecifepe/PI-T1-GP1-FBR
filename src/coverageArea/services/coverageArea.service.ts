@@ -36,5 +36,18 @@ export class CoverageAreaService {
         })
     }
     
+    async create(coverageArea: CoverageArea): Promise<CoverageArea>{
+        return await this.coverageAreaRepository.save(coverageArea)
+    }
 
+   
+    async update(coverageArea: CoverageArea): Promise<CoverageArea> { 
+        
+        let findCoverageArea: CoverageArea = await this.findById(coverageArea.id)
+
+        if(!findCoverageArea || !coverageArea.id)
+            throw new HttpException('Área de Cobertura não localizada!', HttpStatus.NOT_FOUND);
+
+        return await this.coverageAreaRepository.save(coverageArea)
+    }
 }
