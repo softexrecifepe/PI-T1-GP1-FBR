@@ -1,7 +1,7 @@
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CoverageArea } from '../entities/coverageArea.entity';
 import { CoverageAreaService } from './../services/coverageArea.service';
-import { Controller, Get, HttpCode, HttpStatus, UseGuards } from "@nestjs/common";
+import { Controller, Get, HttpCode, HttpStatus, Param, ParseIntPipe, UseGuards } from "@nestjs/common";
 import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
 
 @ApiTags('CoverageArea')
@@ -15,5 +15,17 @@ export class CoverageAreaController {
     @HttpCode(HttpStatus.OK)
     findAll(): Promise<CoverageArea[]> { 
         return this.coverageAreaService.findAll();
+    }
+
+    @Get('/:id')
+    @HttpCode(HttpStatus.OK)
+    findById(@Param('id', ParseIntPipe) id: number): Promise<CoverageArea> {
+        return this.coverageAreaService.findById(id);
+    }
+    
+    @Get('/provider-name/:providerName')
+    @HttpCode(HttpStatus.OK)
+    findByProviderName(@Param('providerName')providerName: string): Promise<CoverageArea[]> {
+        return this.coverageAreaService.findByProviderName(providerName); 
     }
 }
