@@ -4,6 +4,8 @@ import { AuthModule } from './auth/auth.module';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { AppController } from './app.controller';
+import { CoverageArea } from './coverageArea/entities/coverageArea.entity';
+import { CoverageAreaModule } from './coverageArea/coverageArea.module';
 
 
 
@@ -16,11 +18,12 @@ import { AppController } from './app.controller';
       username: 'root',
       password: 'root',
       database: 'db_fbr_digital',
-      entities: [User],
+      entities: [User, CoverageArea],
       synchronize: true,
     }),
     AuthModule,
-    UserModule
+    UserModule,
+    CoverageAreaModule
   ],
   controllers: [AppController],
   providers: [],
