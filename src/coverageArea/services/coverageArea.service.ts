@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CoverageArea } from "../entities/coverageArea.entity";
-import { ILike, Repository } from "typeorm";
+import { DeleteResult, ILike, Repository } from "typeorm";
 
 @Injectable()
 export class CoverageAreaService {
@@ -49,5 +49,15 @@ export class CoverageAreaService {
             throw new HttpException('Área de Cobertura não localizada!', HttpStatus.NOT_FOUND);
 
         return await this.coverageAreaRepository.save(coverageArea)
+    }
+
+    async delete(id: number): Promise<DeleteResult>{
+        
+        let findCoverageArea = await this.findById(id);
+
+        if (!findCoverageArea)
+            throw new HttpException("Área de Cobertura não localizada!", HttpStatus.NOT_FOUND)
+
+        return await this.coverageAreaRepository.delete(id)
     }
 }
