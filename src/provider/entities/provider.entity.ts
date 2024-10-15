@@ -3,6 +3,7 @@ import { IsNotEmpty } from "class-validator"
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Offering } from "../../offering/entities/offering.entity"
 import { Infrastructure } from "../../infrastructure/entities/infrastructure.entity"
+import { Request } from "../../request/entites/request.entity"
 
 @Entity({name: "tb_provider"})
 export class Provider {
@@ -42,4 +43,8 @@ export class Provider {
     @ApiProperty()
     @OneToMany(() => Infrastructure, (infrastructure) => infrastructure.provider)
     infrastructure: Infrastructure[]
+
+    @ApiProperty()
+    @OneToMany(() => Request, (request) => request.provider)
+    request: Request[]
 }

@@ -12,6 +12,8 @@ import { Provider } from './provider/entities/provider.entity';
 import { ProviderModule } from './provider/provider.module';
 import { Infrastructure } from './infrastructure/entities/infrastructure.entity';
 import { InfrastructureModule } from './infrastructure/insfrastructure.module';
+import { Request } from './request/entites/request.entity';
+import { RequestModule } from './request/request.module';
 
 
 
@@ -24,7 +26,7 @@ import { InfrastructureModule } from './infrastructure/insfrastructure.module';
       username: 'root',
       password: 'root',
       database: 'db_fbr_digital',
-      entities: [User, CoverageArea, Offering, Provider, Infrastructure],
+      entities: [User, CoverageArea, Offering, Provider, Infrastructure, Request],
       synchronize: true,
     }),
     AuthModule,
@@ -32,7 +34,8 @@ import { InfrastructureModule } from './infrastructure/insfrastructure.module';
     CoverageAreaModule,
     OfferingModule,
     ProviderModule,
-    InfrastructureModule
+    InfrastructureModule,
+    RequestModule
   ],
   controllers: [AppController],
   providers: [],
