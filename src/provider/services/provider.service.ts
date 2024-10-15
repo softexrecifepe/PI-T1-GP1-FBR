@@ -13,7 +13,7 @@ export class ProviderService {
     async findAll(): Promise<Provider[]> {
         return await this.providerRepository.find({
             relations: {
-                offering: true
+                offering: true,
             }
         });
     }

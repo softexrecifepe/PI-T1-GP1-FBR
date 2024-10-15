@@ -5,10 +5,12 @@ import { CoverageArea } from "./entities/coverageArea.entity";
 import { CoverageAreaController } from './controllers/coverageArea.controller';
 import { OfferingModule } from '../offering/offering.module';
 import { OfferingService } from '../offering/services/offering.service';
+import { ProviderModule } from '../provider/provider.module';
+import { ProviderService } from '../provider/services/provider.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([CoverageArea]), OfferingModule],
-    providers:[CoverageAreaService, OfferingService],
+    imports: [TypeOrmModule.forFeature([CoverageArea]), OfferingModule, ProviderModule],
+    providers:[CoverageAreaService, OfferingService, ProviderService],
     controllers: [CoverageAreaController],
     exports: [TypeOrmModule]
 })
