@@ -14,6 +14,7 @@ export class ProviderService {
         return await this.providerRepository.find({
             relations: {
                 offering: true,
+                infrastructure: true
             }
         });
     }
@@ -25,7 +26,8 @@ export class ProviderService {
                 id
             },
             relations: {
-                offering: true
+                offering: true,
+                infrastructure: true
             }
         });
 
@@ -41,7 +43,8 @@ export class ProviderService {
                 fantasy_name: ILike(`%${fantasy_name}%`)
             },
             relations: {
-                offering: true
+                offering: true,
+                infrastructure: true
             }
         })
     }

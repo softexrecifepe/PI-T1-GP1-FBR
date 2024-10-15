@@ -10,6 +10,8 @@ import { Offering } from './offering/entities/offering.entity';
 import { OfferingModule } from './offering/offering.module';
 import { Provider } from './provider/entities/provider.entity';
 import { ProviderModule } from './provider/provider.module';
+import { Infrastructure } from './infrastructure/entities/infrastructure.entity';
+import { InfrastructureModule } from './infrastructure/insfrastructure.module';
 
 
 
@@ -22,14 +24,15 @@ import { ProviderModule } from './provider/provider.module';
       username: 'root',
       password: 'root',
       database: 'db_fbr_digital',
-      entities: [User, CoverageArea, Offering, Provider],
+      entities: [User, CoverageArea, Offering, Provider, Infrastructure],
       synchronize: true,
     }),
     AuthModule,
     UserModule,
     CoverageAreaModule,
     OfferingModule,
-    ProviderModule
+    ProviderModule,
+    InfrastructureModule
   ],
   controllers: [AppController],
   providers: [],
