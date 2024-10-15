@@ -1,7 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { CoverageArea } from "../../coverageArea/entities/coverageArea.entity";
+import { Provider } from "../../provider/entities/provider.entity";
 
 @Entity({ name: 'tb_offering' })
 export class Offering {
@@ -38,5 +39,10 @@ export class Offering {
   @ApiProperty()
   @OneToMany(() => CoverageArea, (coverageArea) => coverageArea.offering)
   coverageArea: CoverageArea[]
+
+  @ManyToOne(() => Provider, (provider) => provider.offering, {
+    onDelete: "CASCADE"
+})
+provider: Provider
 
 }

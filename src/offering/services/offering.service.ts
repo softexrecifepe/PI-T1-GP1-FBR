@@ -13,7 +13,8 @@ export class OfferingService {
     async findAll(): Promise<Offering[]> {
         return await this.offeringRepository.find({
             relations: {
-                coverageArea: true
+                coverageArea: true,
+                provider: true
             }
         });
     }
@@ -25,7 +26,8 @@ export class OfferingService {
                 id
             },
             relations: {
-                coverageArea: true
+                coverageArea: true,
+                provider: true
             }
         });
 
@@ -41,7 +43,8 @@ export class OfferingService {
                 tipoPlano: ILike(`%${tipoPlano}%`)
             },
             relations: {
-                coverageArea: true
+                coverageArea: true,
+                provider: true
             }
         })
     }
