@@ -14,7 +14,8 @@ export class ProviderService {
         return await this.providerRepository.find({
             relations: {
                 offering: true,
-                infrastructure: true
+                infrastructure: true,
+                request: true
             }
         });
     }
@@ -27,7 +28,8 @@ export class ProviderService {
             },
             relations: {
                 offering: true,
-                infrastructure: true
+                infrastructure: true,
+                request: true
             }
         });
 
@@ -44,7 +46,8 @@ export class ProviderService {
             },
             relations: {
                 offering: true,
-                infrastructure: true
+                infrastructure: true,
+                request: true
             }
         })
     }
