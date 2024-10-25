@@ -1,6 +1,17 @@
 ![Logo](https://github.com/IgorCavalcantiMoura/fap2024/blob/main/FBR%201.png?raw=true)
 
 # FBR digital - Cadastro de Provedores
+
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/maintenance-active-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/platform-NestJS-red?style=for-the-badge&logo=nestjs"/>
+  <img src="https://img.shields.io/badge/docs-available-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/contributors/softexrecifepe/pi-t1-gp1-fbr?style=for-the-badge"/>
+
+</p>
+
 ## Descrição
 O Cadastro de Provedores da FBR Digital é uma aplicação que visa facilitar o cadastro e homologação de provedores de internet na base da FBR Digital. A plataforma permite o registro detalhado dos provedores, incluindo informações de infraestrutura, área de cobertura e serviços oferecidos, proporcionando maior visibilidade para a geração de novas demandas de serviços.
 
