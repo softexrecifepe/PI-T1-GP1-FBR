@@ -62,6 +62,10 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
 #### O projeto estará rodando em:
     http://localhost:4000
 
+> [!Note]\
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:4000)
+
+
 ## Contribuição
 - Faça um fork do projeto.
 - Crie uma branch para sua nova funcionalidade (git checkout -b feat/nova-funcionalidade).
