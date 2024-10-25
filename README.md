@@ -163,6 +163,7 @@ Para maiores informações ou sugestões, entre em contato: projetofbr@gmail.com
 
 <p align="center">
  
+  <img src="https://img.shields.io/badge/feito%20com-caf%C3%A9-%23FFDD00?style=for-the-badge&logo=coffeescript&logoColor=black"/>
   <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20My%20Work-brightgreen?style=for-the-badge&logo=buy-me-a-coffee"/>
-  
+
 </p>
