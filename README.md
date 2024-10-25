@@ -4,11 +4,18 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/maintenance-active-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/platform-NestJS-red?style=for-the-badge&logo=nestjs"/>
   <img src="https://img.shields.io/badge/docs-available-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/github/contributors/softexrecifepe/pi-t1-gp1-fbr?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/last-commit/softexrecifepe/pi-t1-gp1-fbr?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20My%20Work-brightgreen?style=for-the-badge&logo=buy-me-a-coffee"/>
+  <img src="https://img.shields.io/badge/contact-email-orange?style=for-the-badge"/>
+
+
+
 
 </p>
 
