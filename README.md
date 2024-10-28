@@ -39,32 +39,42 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
 - MySQL
 
 ## Passos para rodar o projeto localmente
-#### Clone o repositório:
-
+<details>
+  <summary>1- Clone o repositório:</summary>
+  
     git clone https://github.com/softexrecifepe/PI-T1-GP1-FBR.git
-#### Acesse o diretório do projeto:
-
+</details>
+<details>
+  <summary>2- Acesse o diretório do projeto:</summary>
+  
     cd fbr-digital-provedores
-#### Instale as dependências:
+</details>
+<details>
+  <summary>3- Instale as dependências:</summary>
 
     npm install
-#### Configure as variáveis de ambiente no arquivo .env:
+</details>
+<details>
+   <summary>4- Configure as variáveis de ambiente no arquivo .env:</summary>
 
     DB_HOST=localhost
     DB_PORT=3306
     DB_USERNAME=root
     DB_PASSWORD=sua_senha
     DB_DATABASE=fbr_digital
-
-#### Inicie o servidor de desenvolvimento:
+</details>
+<details>
+   <summary>5- Inicie o servidor de desenvolvimento:</summary>
 
     npm run start:dev
 #### O projeto estará rodando em:
     http://localhost:4000
+</details>
+<br>
 
 > [!Note]\
 > Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:4000)
-
+<br>
 
 ## Contribuição
 - Faça um fork do projeto.
