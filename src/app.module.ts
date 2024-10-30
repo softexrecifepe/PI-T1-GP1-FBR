@@ -14,21 +14,18 @@ import { Infrastructure } from './infrastructure/entities/infrastructure.entity'
 import { InfrastructureModule } from './infrastructure/insfrastructure.module';
 import { Request } from './request/entites/request.entity';
 import { RequestModule } from './request/request.module';
+import { ConfigModule } from '@nestjs/config';
+import { ProdService } from './data/services/prod.service';
 
 
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'db_fbr_digital',
-      entities: [User, CoverageArea, Offering, Provider, Infrastructure, Request],
-      synchronize: true,
-    }),
+    ConfigModule.forRoot(),
+TypeOrmModule.forRootAsync({
+	useClass: ProdService,
+    imports: [ConfigModule],
+}),
     AuthModule,
     UserModule,
     CoverageAreaModule,
