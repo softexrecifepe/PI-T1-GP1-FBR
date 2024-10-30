@@ -73,7 +73,7 @@ O objetivo principal é garantir que os provedores de internet tenham seus cadas
 <br>
 
 > [!Note]\
-> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:4000)
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](https://fbrdigital-pvsh.onrender.com)
 <br>
 
 ## Contribuição
