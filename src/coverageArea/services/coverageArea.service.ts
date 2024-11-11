@@ -97,31 +97,73 @@ export class CoverageAreaService {
         return await this.coverageAreaRepository.delete(id)
     }
 
+    // async findNearbyCoverageAreas(referenceCep: string): Promise<CoverageArea[]> {
+    //     const referenceCoordinates = await this.getCoordinatesFromCep(referenceCep);
+    //     const coverageAreas = await this.coverageAreaRepository.find({
+    //         relations:{
+    //             offering: true
+    //         }
+    //     });
+    //     const nearbyCoverageAreas = [];
+    
+    //     for (const area of coverageAreas) {
+    //       const areaCoordinates = await this.getCoordinatesFromCep(area.cep);
+    //       if (areaCoordinates) {
+    //         const distance = this.calculateDistance(
+    //           referenceCoordinates.lat,
+    //           referenceCoordinates.lng,
+    //           areaCoordinates.lat,
+    //           areaCoordinates.lng,
+    //         );
+    //         if (distance <= area.raio) {
+    //           nearbyCoverageAreas.push(area);
+    //         }
+    //       }
+    //     }
+    //     return nearbyCoverageAreas;
+    //   }
+
+
     async findNearbyCoverageAreas(referenceCep: string): Promise<CoverageArea[]> {
         const referenceCoordinates = await this.getCoordinatesFromCep(referenceCep);
         const coverageAreas = await this.coverageAreaRepository.find({
-            relations:{
-                offering: true
-            }
+            relations: {
+                offering: true,  // Incluindo a relação com Offering
+            },
         });
+    
         const nearbyCoverageAreas = [];
     
         for (const area of coverageAreas) {
-          const areaCoordinates = await this.getCoordinatesFromCep(area.cep);
-          if (areaCoordinates) {
-            const distance = this.calculateDistance(
-              referenceCoordinates.lat,
-              referenceCoordinates.lng,
-              areaCoordinates.lat,
-              areaCoordinates.lng,
-            );
-            if (distance <= area.raio) {
-              nearbyCoverageAreas.push(area);
+            const areaCoordinates = await this.getCoordinatesFromCep(area.cep);
+            if (areaCoordinates) {
+                const distance = this.calculateDistance(
+                    referenceCoordinates.lat,
+                    referenceCoordinates.lng,
+                    areaCoordinates.lat,
+                    areaCoordinates.lng,
+                );
+                // Verifica se a área está dentro do raio
+                if (distance <= area.raio) {
+                    // Calcula o ranking para a oferta associada à área
+                    const offering = area.offering;
+                    const ranking = offering.preco / offering.velocidade;  // Preço dividido pela velocidade
+    
+                    // Adiciona o ranking à área de cobertura
+                    nearbyCoverageAreas.push({
+                        ...area,
+                        offeringRanking: ranking,
+                    });
+                }
             }
-          }
         }
+    
+        // Ordena as áreas de cobertura pela média do preço dividido pela velocidade (ranking)
+        nearbyCoverageAreas.sort((a, b) => a.offeringRanking - b.offeringRanking);
+    
         return nearbyCoverageAreas;
-      }
+    }
+    
     
     private async getCoordinatesFromCep(cep: string): Promise<{ lat: number; lng: number }> {
         const response = await lastValueFrom(
