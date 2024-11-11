@@ -16,6 +16,7 @@ import { Request } from './request/entites/request.entity';
 import { RequestModule } from './request/request.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProdService } from './data/services/prod.service';
+import { DevService } from './data/services/dev.service';
 
 
 
@@ -23,7 +24,7 @@ import { ProdService } from './data/services/prod.service';
   imports: [
     ConfigModule.forRoot(),
 TypeOrmModule.forRootAsync({
-	useClass: ProdService,
+	useClass: DevService,
     imports: [ConfigModule],
 }),
     AuthModule,

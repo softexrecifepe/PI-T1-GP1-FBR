@@ -1,11 +1,17 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty } from "class-validator";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Offering } from "../../offering/entities/offering.entity";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty } from 'class-validator';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Offering } from '../../offering/entities/offering.entity';
 
-@Entity({name: "tb_coverage_area"})
+@Entity({ name: 'tb_coverage_area' })
 export class CoverageArea {
-    
   @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number;
@@ -20,10 +26,10 @@ export class CoverageArea {
   @Column({ type: 'text', nullable: true })
   description: string; // Descrição da área de cobertura
 
-//   @ApiProperty()
-//   @IsNotEmpty()
-//   @Column({ type: 'varchar', length: 255 })
-//   coverageFilePath: string; // Caminho do arquivo de área de cobertura (CSV/KMZ)
+  //   @ApiProperty()
+  //   @IsNotEmpty()
+  //   @Column({ type: 'varchar', length: 255 })
+  //   coverageFilePath: string; // Caminho do arquivo de área de cobertura (CSV/KMZ)
 
   @ApiProperty()
   @IsNotEmpty()
@@ -40,15 +46,19 @@ export class CoverageArea {
   @Column({ type: 'varchar', length: 50, nullable: false })
   technology: string; // Tecnologia usada (fibra, rádio, satélite, etc.)
 
-  @ApiProperty()
-  @IsNotEmpty()
-  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
-  latitude: number; // Latitude da área de cobertura
+  @Column({ type: 'varchar', length: 200 })
+  @ApiProperty({
+    description: 'CEP da área de cobertura',
+    example: '12345678',
+  })
+  cep: string;
 
-  @ApiProperty()
-  @IsNotEmpty()
-  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
-  longitude: number; // Longitude da área de cobertura
+  @Column({ type: 'int'})
+  @ApiProperty({
+    description: 'Raio da áraea de cobertura em KM',
+    example: '10',
+  })
+  raio: number;
 
   @ApiProperty()
   @CreateDateColumn()
@@ -58,7 +68,7 @@ export class CoverageArea {
   @UpdateDateColumn()
   updatedAt: Date; // Data de atualização do registro
 
-  @ApiProperty({type: ()=> Offering})
+  @ApiProperty({ type: () => Offering })
   @ManyToOne(() => Offering, (offering) => offering.coverageArea, {
     onDelete: 'CASCADE',
   })

@@ -3,13 +3,16 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { CoverageArea } from "../entities/coverageArea.entity";
 import { DeleteResult, ILike, Repository } from "typeorm";
 import { OfferingService } from "../../offering/services/offering.service";
+import { lastValueFrom } from 'rxjs';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class CoverageAreaService {
     constructor(
         @InjectRepository(CoverageArea)
         private coverageAreaRepository: Repository<CoverageArea>,
-        private offeringService: OfferingService
+        private offeringService: OfferingService,
+        private httpService: HttpService,
     ){ }
 
     async findAll(): Promise<CoverageArea[]> {
@@ -93,4 +96,55 @@ export class CoverageAreaService {
 
         return await this.coverageAreaRepository.delete(id)
     }
+
+    async findNearbyCoverageAreas(referenceCep: string): Promise<CoverageArea[]> {
+        const referenceCoordinates = await this.getCoordinatesFromCep(referenceCep);
+        const coverageAreas = await this.coverageAreaRepository.find({
+            relations:{
+                offering: true
+            }
+        });
+        const nearbyCoverageAreas = [];
+    
+        for (const area of coverageAreas) {
+          const areaCoordinates = await this.getCoordinatesFromCep(area.cep);
+          if (areaCoordinates) {
+            const distance = this.calculateDistance(
+              referenceCoordinates.lat,
+              referenceCoordinates.lng,
+              areaCoordinates.lat,
+              areaCoordinates.lng,
+            );
+            if (distance <= area.raio) {
+              nearbyCoverageAreas.push(area);
+            }
+          }
+        }
+        return nearbyCoverageAreas;
+      }
+    
+    private async getCoordinatesFromCep(cep: string): Promise<{ lat: number; lng: number }> {
+        const response = await lastValueFrom(
+          this.httpService.get(`https://cep.awesomeapi.com.br/json/${cep}`)
+        );
+        const { lat, lng } = response.data;
+        return { lat: parseFloat(lat), lng: parseFloat(lng) };
+    }
+    
+    private calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+        const R = 6371;
+        const dLat = this.deg2rad(lat2 - lat1);
+        const dLng = this.deg2rad(lng2 - lng1);
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+          Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+    
+    private deg2rad(deg: number): number {
+        return deg * (Math.PI / 180);
+    }
+     
 }

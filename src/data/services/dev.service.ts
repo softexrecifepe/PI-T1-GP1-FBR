@@ -5,6 +5,7 @@ import { CoverageArea } from "../../coverageArea/entities/coverageArea.entity";
 import { Offering } from "../../offering/entities/offering.entity";
 import { Infrastructure } from "../../infrastructure/entities/infrastructure.entity";
 import { Provider } from "../../provider/entities/provider.entity";
+import { Request } from "../../request/entites/request.entity";
 
 
 @Injectable()
